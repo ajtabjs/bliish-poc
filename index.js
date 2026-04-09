@@ -2,7 +2,11 @@ import axios from 'axios';
 const https = require('https');
 require('dotenv').config(); // load dot env
 
-var user = "snapple"
+var user = process.env.user;
+
+var token = process.env.token;
+
+
 
 var time = 3600000
 
@@ -15,9 +19,11 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
 "test2"
     ];
 
-    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    const random = facts[Math.floor(Math.random() * facts.length)];
+    
+    var push = {"body": "${random}"}
 
-axios.post(globalposts, payload)
+axios.post(globalposts, push)
 .then(response => {
 console.log('cool status', response.status);
 console.log('data we be sendin', response.data);
