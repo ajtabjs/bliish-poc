@@ -12,6 +12,8 @@ const globalposts = "https://bliish.com/api/v1/posts"
 
 const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
 
+const wall = "https://bliish.com/api/v1/profiles/snapple/wall?fresh=1&limit=20"
+
  const facts = [
     "Snapple Real Fact #408: Panda bears eat up to 16 hours a day.",
 "Snapple Real Fact #2143: The first golf course in America was built in 1884 in West Virginia.",
@@ -38,16 +40,39 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
     
     var push = {"body": `${random}`}
 
-axios.post(globalposts, push, {
+    function check(){
+axios.get(wall, {
+    headers: {
+      'cookie': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2,
+      'origin': 'https://bliish.com'
+    }
+  })
+  .then(response => {
+    data = response.data.posts[0].created_at;
+
+    if (data > Date.now() - time) {
+      console.log("post is less than an hour, not posting new fact :(");
+      return;
+    }
+    console.log('cool status', response.status);
+    console.log('data we be recieiving', response.data);
+  })}
+
+
+function dailyPost(){
+  axios.post(globalposts, push, {
   headers: {
     'cookie': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2,
     'origin': 'https://bliish.com'
-  }
-})
+  }})
 .then(response => {
 console.log('cool status', response.status);
 console.log('data we be sendin', response.data);
 console.log('random fact is', random);
-}), setInterval(() => {
-    
+})
+}
+
+dailyPost();
+setInterval(() => {
+  dailyPost();
 }, time);
