@@ -7,7 +7,7 @@ var user = process.env.user;
 var token = process.env.token;
 var token2 = process.env.token2; /* second token part lol bliish changed their api */
 
-var time = 3600000 /* should be set to an hour im sure */
+var time = 300000
 
 const globalposts = "https://bliish.com/api/v1/posts"
 
