@@ -47,6 +47,7 @@ axios.post(globalposts, push, {
 .then(response => {
 console.log('cool status', response.status);
 console.log('data we be sendin', response.data);
+console.log('random fact is', random);
 }), setInterval(() => {
     
 }, time);
