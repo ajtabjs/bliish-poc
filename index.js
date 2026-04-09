@@ -21,9 +21,11 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
     
     var push = {"body": "${random}"}
 
-axios.post(globalposts, push), headers: {
+axios.post(globalposts, push, {
+  headers: {
     'Authorization': 'sb-prkqirdzadljdpkrvjvz-auth-token=' + token
-  },
+  }
+})
 .then(response => {
 console.log('cool status', response.status);
 console.log('data we be sendin', response.data);
