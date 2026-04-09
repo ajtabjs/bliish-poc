@@ -9,7 +9,7 @@ var token2 = process.env.token2; /* second token part lol bliish changed their a
 var time = 300000
 const bliip = `https://bliish.com/api/v1/bliips`
 
-var bliipuser = "top";
+var bliipuser = "misty";
 var push = {"handle": `${bliipuser}`}
 
 
