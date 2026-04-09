@@ -4,7 +4,7 @@ require('dotenv').config(); // load dot env
 
 var user = "snapple"
 
-var time = 
+var time = 3600000
 
 const globalposts = "https://bliish.com/api/v1/posts"
 
