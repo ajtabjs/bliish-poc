@@ -40,7 +40,8 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
 
 axios.post(globalposts, push, {
   headers: {
-    'Authorization': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2
+    'Authorization': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2,
+    'origin': 'https://bliish.com'
   }
 })
 .then(response => {
