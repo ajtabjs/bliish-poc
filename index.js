@@ -1,5 +1,4 @@
 import axios from 'axios';
-const https = require('https');
 require('dotenv').config(); // load dot env
 
 var user = process.env.user;
