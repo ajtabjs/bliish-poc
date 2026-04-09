@@ -49,11 +49,14 @@ axios.get(wall, {
   })
   .then(response => {
     data = response.data.posts[0].created_at;
+    var posttime = new Date(data).getTime();
 
-    if (data > Date.now() - time) {
+    if (data > posttime - time) {
       console.log("post is less than an hour, not posting new fact :(");
-      return;
+      return false;
     }
+    console.log('we be ballin, ready to post')
+    return true;
     console.log('cool status', response.status);
     console.log('data we be recieiving', response.data);
   })}
@@ -72,7 +75,8 @@ console.log('random fact is', random);
 })
 }
 
-dailyPost();
-setInterval(() => {
-  dailyPost();
-}, time);
+function tryPost() {
+  check().then(testpost => {
+    if (testpost) dailyPost();
+  });
+}
