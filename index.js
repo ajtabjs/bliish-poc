@@ -48,10 +48,10 @@ return axios.get(wall, {
     }
   })
   .then(response => {
-    data = response.data.posts[0].created_at;
+    var data = response.data.posts[0].created_at;
     var posttime = new Date(data).getTime();
 
-    if (Date.now() - postTime < time) {
+    if (Date.now() - posttime < time) {
       console.log("post is less than an hour, not posting new fact :(");
       return false;
     }
