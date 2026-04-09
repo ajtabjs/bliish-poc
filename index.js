@@ -6,7 +6,7 @@ var user = process.env.user;
 var token = process.env.token;
 var token2 = process.env.token2; /* second token part lol bliish changed their api */
 
-var time = 300000
+var time = 3600000
 
 const globalposts = "https://bliish.com/api/v1/posts"
 
@@ -41,7 +41,7 @@ const wall = "https://bliish.com/api/v1/profiles/snapple/wall?fresh=1&limit=20"
     var push = {"body": `${random}`}
 
     function check(){
-axios.get(wall, {
+return axios.get(wall, {
     headers: {
       'cookie': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2,
       'origin': 'https://bliish.com'
@@ -51,7 +51,7 @@ axios.get(wall, {
     data = response.data.posts[0].created_at;
     var posttime = new Date(data).getTime();
 
-    if (data > posttime - time) {
+    if (Date.now() - postTime < time) {
       console.log("post is less than an hour, not posting new fact :(");
       return false;
     }
@@ -63,7 +63,7 @@ axios.get(wall, {
 
 
 function dailyPost(){
-  axios.post(globalposts, push, {
+  return axios.post(globalposts, push, {
   headers: {
     'cookie': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2,
     'origin': 'https://bliish.com'
