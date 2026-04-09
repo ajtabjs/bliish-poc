@@ -1,7 +1,10 @@
 import axios from 'axios';
 const https = require('https');
+require('dotenv').config(); // load dot env
 
 var user = "snapple"
+
+var time = 
 
 const globalposts = "https://bliish.com/api/v1/posts"
 
@@ -18,4 +21,6 @@ axios.post(globalposts, payload)
 .then(response => {
 console.log('cool status', response.status);
 console.log('data we be sendin', response.data);
-})
+}), setInterval(() => {
+    
+}, time);
