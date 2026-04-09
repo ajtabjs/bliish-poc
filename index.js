@@ -5,6 +5,7 @@ require('dotenv').config(); // load dot env
 var user = process.env.user;
 
 var token = process.env.token;
+var token2 = process.env.token2; /* second token part lol bliish changed their api */
 
 var time = 3600000 /* should be set to an hour im sure */
 
@@ -40,7 +41,7 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
 
 axios.post(globalposts, push, {
   headers: {
-    'Authorization': 'sb-prkqirdzadljdpkrvjvz-auth-token=' + token
+    'Authorization': 'sb-prkqirdzadljdpkrvjvz-auth-token.0=' + token + '; sb-prkqirdzadljdpkrvjvz-auth-token.1=' + token2
   }
 })
 .then(response => {
