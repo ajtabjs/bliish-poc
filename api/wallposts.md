@@ -13,6 +13,7 @@ as well as needing a second part to the cookie, "sb-prkqirdzadljdpkrvjvz-auth-to
 (whatever the value of the cookie is)
 
 examples of what these cookies would look like are in env.example
+note: these tokens refresh every so often
 
 api accepts a json format 
 ```{"body": "text content"}```
