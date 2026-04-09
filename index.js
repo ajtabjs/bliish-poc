@@ -36,7 +36,7 @@ const wallposts = `https://bliish.com/api/v1/profiles/${user}/wall/posts`
 
     const random = facts[Math.floor(Math.random() * facts.length)];
     
-    var push = {"body": "${random}"}
+    var push = {"body": `${random}`}
 
 axios.post(globalposts, push, {
   headers: {
