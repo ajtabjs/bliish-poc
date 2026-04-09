@@ -80,3 +80,5 @@ function tryPost() {
     if (testpost) dailyPost();
   });
 }
+tryPost();
+setInterval(tryPost, time);
