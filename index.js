@@ -1,5 +1,5 @@
 import axios from 'axios';
-require('dotenv').config(); // load dot env
+import('dotenv').config(); // load dot env
 
 var user = process.env.user;
 
